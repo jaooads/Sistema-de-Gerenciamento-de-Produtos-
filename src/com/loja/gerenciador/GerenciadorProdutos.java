@@ -36,7 +36,7 @@ public class GerenciadorProdutos {
 
     /**
      * Valida os dados de um produto.
-     * <p>
+     *
      * Verifica se o nome do produto não é nulo ou vazio, e o preço é maior que zero
      * e se a quantidade em estoque é maior ou igual a zero.
      *
@@ -48,4 +48,26 @@ public class GerenciadorProdutos {
         return produto.getNome() != null && !produto.getNome().isEmpty() &&
                 produto.getPreco() > 0 && produto.getQuantidadeEstoque() >= 0;
     }
+
+    public Produto buscarPorId  (int id) {
+
+        for(Produto prod : produtos ) {
+            if(prod.getId().equals(id)) {
+                return prod;
+            }
+        }
+        return null;
+    }
+
+    public List<Produto> listarTodos() {
+    return new ArrayList<>(produtos);
+    }
+
+
+    //public boolean atualizar(Produto produto) {
+
+
+    //}
+
+
 }
