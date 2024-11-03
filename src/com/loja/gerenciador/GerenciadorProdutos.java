@@ -1,5 +1,6 @@
 package com.loja.gerenciador;
 
+import com.loja.exception.ValidacaoException;
 import com.loja.modelo.Produto;
 
 import java.util.ArrayList;
@@ -161,15 +162,15 @@ public class GerenciadorProdutos {
     private void validarProduto(Produto produto) {
 
         if (produto.getNome() == null || produto.getNome().isEmpty()) {
-            throw new IllegalArgumentException("O nome do produto não pode estar vazio");
+            throw new ValidacaoException("O nome do produto não pode estar vazio");
 
         }
         if (produto.getPreco() <= 0) {
-            throw new IllegalArgumentException("O pre~ço do produto não pode ser negativo");
+            throw new ValidacaoException("O pre~ço do produto não pode ser negativo");
         }
 
         if (produto.getQuantidadeEstoque() < 0) {
-            throw new IllegalArgumentException("A quantidade em estoque não pode ser negativa");
+            throw new ValidacaoException("A quantidade em estoque não pode ser negativa");
         }
 
     }
